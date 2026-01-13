@@ -25,6 +25,6 @@ app.get('/',(_,res)=>{
 app.use(userRoutes)
 app.use(taskRoutes)
 app.use(blogRoutes)
-app.listen(8002,()=>{
+app.listen(process.env.PORT||8002,()=>{
     console.log("Server started at 8002")
 })
