@@ -23,17 +23,17 @@ const getAllBlogs = async (req, res) => {
       return;
     }
     const match={}
-    const page = req.query.page||1
-    const limit = req.query.limit||5
+    const page = req?.query?.page
+    const limit = req?.query?.limit
     const skip = (page-1)*limit
-    if(req.query.status){
+    if(req?.query?.status){
       match.status = req.query.status
     }
-    if(req.query.category){
+    if(req?.query?.category){
       match.category = req.query.category
     }
     const sort = {}
-    if(req.query.sortBy){
+    if(req?.query?.sortBy){
       const field = req.query.sortBy.split(",")
       console.log(field)
       field.forEach((item)=>{
