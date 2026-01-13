@@ -1,5 +1,4 @@
 const User = require('../model/userModel')
-const secretKey = "secret"
 const jwt = require("jsonwebtoken")
 // const auth = async(req,res,next)=>{
 //     // const authHeader = req.header('Authorization')
@@ -39,7 +38,7 @@ const jwt = require("jsonwebtoken")
 const auth = async(req,res,next)=>{
     try{
       const token = req.cookies.token
-      const verify = jwt.verify(token, secretKey)
+      const verify = jwt.verify(token, process.env.secretKey)
       if(!verify){
         res.status(403).send({"message":"Verification failed"})
       }

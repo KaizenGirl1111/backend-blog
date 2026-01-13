@@ -5,6 +5,10 @@ const taskRoutes = require('./routes/taskRoutes')
 const blogRoutes = require('./routes/blogRoutes')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const dotenv = require('dotenv')
+dotenv.config()
+//console.log(process.env.secretKey)
+//console.log(process.env.mongoURL)
 const app = express()
 
 app.use(cors({
