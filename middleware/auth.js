@@ -36,7 +36,7 @@ const jwt = require("jsonwebtoken")
 
 
 const auth = async(req,res,next)=>{
-    try{
+  //  try{
       const token = req.cookies.token
       const verify = jwt.verify(token, process.env.secretKey)
       if(!verify){
@@ -50,10 +50,10 @@ const auth = async(req,res,next)=>{
       req.token=token
       req.id = verify._id
       next()
-  }
-   catch(e){
-    res.status(500).send({"message":"Authentication is failed"})
-   }
+ // }
+ //  catch(e){
+  //  res.status(500).send({"message":"Authentication is failed"})
+ //  }
 }
 
 module.exports = auth
