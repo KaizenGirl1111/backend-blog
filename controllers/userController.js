@@ -77,7 +77,8 @@ const signInAUser = async (req, res) => {
       httpOnly:true,
       secure:false, //https>>true
       sameSite:"lax", //lax or none for cross domain,strict for same domain\
-     maxAge:24*60*60*1000
+     maxAge:24*60*60*1000,
+     path: "/"
      // maxAge:expIn*1000
     })
     return res.status(200).send({
@@ -153,7 +154,7 @@ const verifyCookie = (req,res)=>{
   res.send({
     authenticated:true,
     user:req.user,
-    token:req.token
+    token:req.token,
   })
 }
 module.exports = {
