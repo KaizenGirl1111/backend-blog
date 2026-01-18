@@ -12,7 +12,7 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:["http://localhost:5173","https://blog232.netlify.app"],
     credentials:true //for cookies
 }))
 connectDb()
