@@ -141,9 +141,10 @@ const updateAUser = async (req, res) => {
 const logout = (_,res)=>{
   try{
   res.clearCookie("token",{
-    secure:true,
-    httpOnly:true,
-    sameSite: "none"
+    secure:isProd?true:false,
+    httpOnly:isProd?true:false,
+    sameSite:isProd? "none":"lax",
+    path:"/"
   })
   res.status(200).send({"message":"User logged out successfully"})
 }
