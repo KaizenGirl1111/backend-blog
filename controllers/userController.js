@@ -76,7 +76,7 @@ const signInAUser = async (req, res) => {
       );
 
     res.cookie("token",token,{
-      httpOnly:isProd?false:true,
+      httpOnly:isProd?true:false,
       secure:isProd?true:false, //https>>true
       sameSite:isProd?"none":"lax", //lax or none for cross domain,strict for same domain\
      maxAge:24*60*60*1000,
